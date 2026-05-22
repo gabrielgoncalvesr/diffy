@@ -13,13 +13,14 @@ export function App() {
   const [leftTitle, setLeftTitle] = useState('Left')
   const [rightTitle, setRightTitle] = useState('Right')
   const [theme, setTheme] = useState<Theme>('light')
+  const [scrollLocked, setScrollLocked] = useState(false)
 
   const leftEditorRef = useRef<Monaco.editor.IStandaloneCodeEditor | null>(null)
   const rightEditorRef = useRef<Monaco.editor.IStandaloneCodeEditor | null>(null)
 
   const diff = useDiff(leftText, rightText)
 
-  useScrollSync(leftEditorRef, rightEditorRef)
+  useScrollSync(leftEditorRef, rightEditorRef, scrollLocked)
 
   const openFile = useCallback(async (side: 'left' | 'right') => {
     const result = await window.electronAPI.openFile()
@@ -67,6 +68,8 @@ export function App() {
         onSwap={handleSwap}
         onCopyLeft={handleCopyLeft}
         onCopyRight={handleCopyRight}
+        scrollLocked={scrollLocked}
+        onToggleScrollLock={() => setScrollLocked((v) => !v)}
       />
       <div className="editor-area">
         <EditorPanel

@@ -11,6 +11,8 @@ interface ToolbarProps {
   onSwap: () => void
   onCopyLeft: () => void
   onCopyRight: () => void
+  scrollLocked: boolean
+  onToggleScrollLock: () => void
 }
 
 export function Toolbar({
@@ -23,6 +25,8 @@ export function Toolbar({
   onSwap,
   onCopyLeft,
   onCopyRight,
+  scrollLocked,
+  onToggleScrollLock,
 }: ToolbarProps) {
   return (
     <header className="toolbar">
@@ -35,6 +39,13 @@ export function Toolbar({
         <button onClick={onSwap}>⇄ Swap</button>
         <button onClick={onCopyLeft}>Copy Left</button>
         <button onClick={onCopyRight}>Copy Right</button>
+        <button
+          onClick={onToggleScrollLock}
+          className={scrollLocked ? 'scroll-lock-btn active' : 'scroll-lock-btn'}
+          title={scrollLocked ? 'Unlock scroll' : 'Lock scroll sync'}
+        >
+          {scrollLocked ? '🔒 Scroll Locked' : '🔓 Scroll Free'}
+        </button>
       </div>
       <div className="toolbar-right">
         {diffCount > 0 && (

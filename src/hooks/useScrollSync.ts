@@ -13,11 +13,14 @@ export function syncScroll(
 
 export function useScrollSync(
   leftRef: React.MutableRefObject<Monaco.editor.IStandaloneCodeEditor | null>,
-  rightRef: React.MutableRefObject<Monaco.editor.IStandaloneCodeEditor | null>
+  rightRef: React.MutableRefObject<Monaco.editor.IStandaloneCodeEditor | null>,
+  enabled: boolean
 ): void {
   const syncing = useRef(false)
 
   useEffect(() => {
+    if (!enabled) return
+
     const left = leftRef.current
     const right = rightRef.current
     if (!left || !right) return
@@ -50,5 +53,5 @@ export function useScrollSync(
       leftDisposable.dispose()
       rightDisposable.dispose()
     }
-  }, [leftRef, rightRef])
+  }, [leftRef, rightRef, enabled])
 }

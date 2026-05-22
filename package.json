@@ -1,5 +1,5 @@
 {
-  "name": "deltalens",
+  "name": "diffy",
   "version": "0.1.0",
   "description": "Offline macOS diff tool",
   "main": "dist-electron/main.js",

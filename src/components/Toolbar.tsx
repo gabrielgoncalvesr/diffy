@@ -1,3 +1,4 @@
+import logo from '../assets/logo.png'
 import type { Theme } from '../types'
 
 interface ToolbarProps {
@@ -25,7 +26,8 @@ export function Toolbar({
 }: ToolbarProps) {
   return (
     <header className="toolbar">
-      <span className="toolbar-logo">DeltaLens</span>
+      <img src={logo} alt="Diffy" className="toolbar-logo-img" />
+      <span className="toolbar-logo">Diffy</span>
       <div className="toolbar-actions">
         <button onClick={onOpenLeft}>Open Left</button>
         <button onClick={onOpenRight}>Open Right</button>

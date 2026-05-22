@@ -49,11 +49,26 @@ html, body, #root {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
+  padding: 6px 12px 6px 80px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
   flex-wrap: wrap;
+  -webkit-app-region: drag;
+}
+
+.toolbar button,
+.toolbar-logo,
+.toolbar-actions,
+.toolbar-right {
+  -webkit-app-region: no-drag;
+}
+
+.toolbar-logo-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .toolbar-logo {
@@ -179,4 +194,21 @@ html, body, #root {
 
 .diff-added {
   background-color: var(--diff-added-bg) !important;
+}
+
+/* Monaco selection visibility */
+.monaco-editor .selected-text {
+  background-color: rgba(100, 149, 237, 0.35) !important;
+}
+
+.app.dark .monaco-editor .selected-text {
+  background-color: rgba(100, 149, 237, 0.45) !important;
+}
+
+.monaco-editor.focused .selected-text {
+  background-color: rgba(100, 149, 237, 0.45) !important;
+}
+
+.app.dark .monaco-editor.focused .selected-text {
+  background-color: rgba(100, 149, 237, 0.55) !important;
 }

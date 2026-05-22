@@ -1,7 +1,28 @@
 import { useRef, useEffect } from 'react'
-import Editor, { type OnMount } from '@monaco-editor/react'
+import Editor, { type OnMount, type BeforeMount } from '@monaco-editor/react'
 import type * as Monaco from 'monaco-editor'
 import type { DiffDecoration, Theme } from '../types'
+
+const handleBeforeMount: BeforeMount = (monaco) => {
+  monaco.editor.defineTheme('deltalens-light', {
+    base: 'vs',
+    inherit: true,
+    rules: [],
+    colors: {
+      'editor.selectionBackground': '#3b82f680',
+      'editor.inactiveSelectionBackground': '#3b82f640',
+    },
+  })
+  monaco.editor.defineTheme('deltalens-dark', {
+    base: 'vs-dark',
+    inherit: true,
+    rules: [],
+    colors: {
+      'editor.selectionBackground': '#3b82f699',
+      'editor.inactiveSelectionBackground': '#3b82f655',
+    },
+  })
+}
 
 interface EditorPanelProps {
   value: string
@@ -53,7 +74,8 @@ export function EditorPanel({
           value={value}
           onChange={(v) => onChange(v ?? '')}
           onMount={handleMount}
-          theme={theme === 'dark' ? 'vs-dark' : 'light'}
+          beforeMount={handleBeforeMount}
+          theme={theme === 'dark' ? 'deltalens-dark' : 'deltalens-light'}
           options={{
             lineNumbers: 'on',
             minimap: { enabled: false },

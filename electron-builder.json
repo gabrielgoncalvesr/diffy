@@ -1,6 +1,6 @@
 {
-  "appId": "com.deltalens.app",
-  "productName": "DeltaLens",
+  "appId": "com.diffy.app",
+  "productName": "Diffy",
   "directories": {
     "buildResources": "assets",
     "output": "release"
@@ -11,6 +11,7 @@
   ],
   "mac": {
     "category": "public.app-category.developer-tools",
-    "target": "dmg"
+    "target": "dmg",
+    "icon": "assets/icon.png"
   }
 }

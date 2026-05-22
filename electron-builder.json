@@ -1,0 +1,16 @@
+{
+  "appId": "com.deltalens.app",
+  "productName": "DeltaLens",
+  "directories": {
+    "buildResources": "assets",
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*"
+  ],
+  "mac": {
+    "category": "public.app-category.developer-tools",
+    "target": "dmg"
+  }
+}

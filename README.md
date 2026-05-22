@@ -10,13 +10,14 @@
 
 ---
 
-## Screenshots
-
+### Light Mode
 <p align="center">
   <img src="assets/diffy-light.png" width="100%" alt="Diffy light mode" />
 </p>
+
+### Dark Mode
 <p align="center">
-  <img src="assets/diffy-dark.png" width="48%" alt="Diffy dark mode" />
+  <img src="assets/diffy-dark.png" width="100%" alt="Diffy dark mode" />
 </p>
 
 ---

@@ -10,6 +10,15 @@
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="assets/diffy-light.png" width="48%" alt="Diffy light mode" />
+  <img src="assets/diffy-dark.png" width="48%" alt="Diffy dark mode" />
+</p>
+
+---
+
 ## What it does
 
 Diffy is a native macOS desktop app for comparing text side by side. Paste content directly or open files — differences are highlighted instantly with no server, no account, no internet required.

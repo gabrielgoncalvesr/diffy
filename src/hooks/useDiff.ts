@@ -15,7 +15,8 @@ export function computeDiff(leftText: string, rightText: string): DiffResult {
   for (let i = 0; i < changes.length; i++) {
     const part = changes[i]
     const prevPart = changes[i - 1]
-    const lineCount = part.value.split('\n').filter((_, i, arr) =>
+    const lines = part.value.split('\n')
+    const lineCount = lines.filter((_: string, i: number, arr: string[]) =>
       i < arr.length - 1 || arr[arr.length - 1] !== ''
     ).length
 

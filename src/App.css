@@ -1,0 +1,182 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #ffffff;
+  --surface: #f3f4f6;
+  --surface2: #f9fafb;
+  --border: #e5e7eb;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --btn-bg: #ffffff;
+  --btn-border: #d1d5db;
+  --diff-removed-bg: #fee2e2;
+  --diff-added-bg: #dcfce7;
+}
+
+.app.dark {
+  --bg: #1e1e1e;
+  --surface: #252526;
+  --surface2: #2d2d2d;
+  --border: #3e3e42;
+  --text: #d4d4d4;
+  --text-muted: #858585;
+  --btn-bg: #3c3c3c;
+  --btn-border: #555;
+  --diff-removed-bg: #3a1212;
+  --diff-added-bg: #0d2e1a;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.toolbar-logo {
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 6px;
+  color: var(--text);
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.toolbar button {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.toolbar button:hover {
+  background: var(--surface2);
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.diff-badge {
+  font-size: 11px;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.app.dark .diff-badge {
+  background: #451a03;
+  color: #fbbf24;
+}
+
+.theme-toggle {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* Editor area */
+.editor-area {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-right: 1px solid var(--border);
+}
+
+.editor-panel:last-child {
+  border-right: none;
+  border-left: 1px solid var(--border);
+}
+
+.editor-title {
+  padding: 4px 8px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.editor-title-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: text;
+}
+
+.editor-title-input::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.editor-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Gutter */
+.diff-gutter {
+  width: 40px;
+  flex-shrink: 0;
+  background: var(--surface2);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+/* Monaco diff decorations */
+.diff-removed {
+  background-color: var(--diff-removed-bg) !important;
+}
+
+.diff-added {
+  background-color: var(--diff-added-bg) !important;
+}

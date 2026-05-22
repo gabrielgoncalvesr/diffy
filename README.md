@@ -14,6 +14,8 @@
 
 <p align="center">
   <img src="assets/diffy-light.png" width="48%" alt="Diffy light mode" />
+</p>
+<p align="center">
   <img src="assets/diffy-dark.png" width="48%" alt="Diffy dark mode" />
 </p>
 
